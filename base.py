@@ -95,7 +95,7 @@ class Arena(metaclass=BaseSingleton):
         # возвращаем результат удара строкой
         result = self.player.hit(self.enemy)
         result_turn = self.next_turn()
-        return f"{result} \n {result_turn}"
+        return f"""{result} \n {result_turn}"""
 
     def player_use_skill(self):
         # КНОПКА ИГРОК ИСПОЛЬЗУЕТ УМЕНИЕ
@@ -104,4 +104,4 @@ class Arena(metaclass=BaseSingleton):
         # возвращаем результат удара строкой
         result = self.player.use_skill(self.enemy)
         result_turn = self.next_turn()
-        return f"{result} \n {result_turn}"
+        return f"""{result} \n {result_turn}"""
