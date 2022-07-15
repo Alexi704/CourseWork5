@@ -1,0 +1,12 @@
+click
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+marshmallow
+marshmallow-dataclass
+mypy-extensions
+typing-inspect
+typing_extensions
+Werkzeug
