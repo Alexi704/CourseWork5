@@ -47,22 +47,22 @@ class Arena(metaclass=BaseSingleton):
         # в этом методе к количеству стамины игрока и врага прибавляется константное значение.
         # главное чтобы оно не привысило максимальные значения (используйте if)
 
-        # units = (self.player, self.enemy)
-        # for unit in units:
-        #     if unit.stamina + self.STAMINA_PER_ROUND > unit.unit_class.max_stamina:
-        #         unit.stamina = unit.unit_class.max_stamina
-        #     else:
-        #         unit.stamina += self.STAMINA_PER_ROUND
+        units = (self.player, self.enemy)
+        for unit in units:
+            if unit.stamina + self.STAMINA_PER_ROUND > unit.unit_class.max_stamina:
+                unit.stamina = unit.unit_class.max_stamina
+            else:
+                unit.stamina += self.STAMINA_PER_ROUND
 
-        if self.player.stamina + self.STAMINA_PER_ROUND > self.player.unit_class.max_stamina:
-            self.player.stamina = self.player.unit_class.max_stamina
-        else:
-            self.player.stamina += self.STAMINA_PER_ROUND
-
-        if self.enemy.stamina + self.STAMINA_PER_ROUND > self.enemy.unit_class.max_stamina:
-            self.enemy.stamina = self.enemy.unit_class.max_stamina
-        else:
-            self.enemy.stamina += self.STAMINA_PER_ROUND
+        # if self.player.stamina + self.STAMINA_PER_ROUND > self.player.unit_class.max_stamina:
+        #     self.player.stamina = self.player.unit_class.max_stamina
+        # else:
+        #     self.player.stamina += self.STAMINA_PER_ROUND
+        #
+        # if self.enemy.stamina + self.STAMINA_PER_ROUND > self.enemy.unit_class.max_stamina:
+        #     self.enemy.stamina = self.enemy.unit_class.max_stamina
+        # else:
+        #     self.enemy.stamina += self.STAMINA_PER_ROUND
 
     def next_turn(self):
         # СЛЕДУЮЩИЙ ХОД -> return result | return self.enemy.hit(self.player)
@@ -95,7 +95,7 @@ class Arena(metaclass=BaseSingleton):
         # возвращаем результат удара строкой
         result = self.player.hit(self.enemy)
         result_turn = self.next_turn()
-        return f"{result}\n{result_turn}"
+        return f"{result} \n {result_turn}"
 
     def player_use_skill(self):
         # КНОПКА ИГРОК ИСПОЛЬЗУЕТ УМЕНИЕ
@@ -104,4 +104,4 @@ class Arena(metaclass=BaseSingleton):
         # возвращаем результат удара строкой
         result = self.player.use_skill(self.enemy)
         result_turn = self.next_turn()
-        return f"{result}\n{result_turn}"
+        return f"{result} \n {result_turn}"
